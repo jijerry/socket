@@ -8,5 +8,13 @@
 
 
 /*
- *
+ *------------------
+ * 客户端socket通信过程
+ * -----------------
+ *  @socket_create();
+ *  @socket_connect();
+ *  @socket_write()
+ *  @socket_read();
+ *  @socket_close();
+ * ------------------
  */
