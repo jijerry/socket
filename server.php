@@ -22,8 +22,9 @@
  * ----------------------
  *
  */
-
+//设置报告何种php错误
 error_reporting(E_ALL);
+//设置脚本最大执行时间
 set_time_limit(0);
 //ob_implicit_flush();
 
@@ -31,7 +32,7 @@ $address = '127.0.0.1';
 $port = 10005;
 //创建端口
 if( ($sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP)) === false) {
-    echo "socket_create() failed :reason:" . socket_strerror(socket_last_error()) . "\n";
+    echo "socket_create() failed :reason:" . socket_strerror(socket_last_error()) . "\n";   //返回描述一个套接字错误字符串
 }
 
 //绑定
@@ -46,9 +47,10 @@ if (socket_listen($sock, 5) === false) {
 
 do {
     //得到一个链接
+    //返回一个新的套接字资源成功时、
     if (($msgsock = socket_accept($sock)) === false) {
         echo "socket_accepty() failed :reason:".socket_strerror(socket_last_error($sock)) . "\n";
-        break;
+        break;  //未接受连接直接跳出循环
     }
     //welcome  发送到客户端
     $msg = "<font color='red'>server send:welcome</font><br/>";
